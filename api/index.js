@@ -1,16 +1,36 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
 /* used by all types and routes */
 router.all('/*', function (req, res, next) {
-    console.log('Accessing the all section ...')
-    next()
+    console.log('Accessing the all section ...');
+   
+    fs.readFile('./data/login.data',function(err,content){
+        if(err) throw err;
+        var data = JSON.parse(content.toString());
+        var users = data.users;
+        var user = {
+            id:"Yasir1",
+            email:"YasirKamdar1@gmail.com",
+            password:"abc@1231"
+        };
+        data.users.push(user);
+        console.log(data)
+        fs.writeFile('./data/login.data',JSON.stringify(data),function(err){
+          if(err) throw err;
+        })
+      })
+      next()
 });
 
 /* generic get */
 router.get('/', function(req, res, next) {
     console.log('Accessing the get section ...')
-    res.send('respond with a resource');
+    fs.readFile('./data/login.data',function(err,content){
+        if(err) throw err;
+        res.send(content.toString());
+    });
 });
 
 /* post object */
