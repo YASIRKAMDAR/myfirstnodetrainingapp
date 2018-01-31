@@ -3,3 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title} 
+  if value
+    | #{value}
+  else
+    | no value
+
+  form(action="/api/post", method="post")
+    button(type="submit") submit
