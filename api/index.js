@@ -3,7 +3,6 @@ var router = express.Router();
 var fs = require('fs');
 
 /* used by all types and routes */
-router.all('/', function (req, res, next) {
     console.log('Accessing the all section nodemon...')
     fs.readFile('./data/login.data',function(err,content){
         if(err) throw err;
@@ -22,7 +21,7 @@ router.all('/', function (req, res, next) {
 })
     next()
 })
-    
+     */
 
 /* api  request. */
 router.get('/', function(req, res, next) {

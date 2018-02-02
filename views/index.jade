@@ -3,5 +3,13 @@ extends layout
 block content
   h1= title
   p Welcome to #{title} 
-  form(action="/api/post", method="post")
+  form(action="/api/users/register", method="post")
+    input#username(type="text", name="username")
+    input#email(type="text", name="email")
+    input#password(type="password", name="password")
+    input(type="submit", value="post")
+
+  form(action="/api/users/login", method="post")
+    input#userid(type="text", name="userid")
+    input#password(type="password", name="password")
     input(type="submit", value="post")
