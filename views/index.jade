@@ -2,14 +2,23 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title} 
-  form(action="/api/users/register", method="post")
-    input#username(type="text", name="username")
-    input#email(type="text", name="email")
-    input#password(type="password", name="password")
-    input(type="submit", value="post")
-
-  form(action="/api/users/login", method="post")
-    input#userid(type="text", name="userid")
-    input#password(type="password", name="password")
-    input(type="submit", value="post")
+  p Welcome to #{title}
+  #dvRegister
+    h2 Register
+    form(action="/api/users/register", method="post")
+      label(for="username") Username
+      input#username(type="text", name="username")
+      label(for="email") Email
+      input#email(type="text", name="email")
+      label(for="password") Password
+      input#password(type="password", name="password")
+      input(type="submit", value="register")
+  
+  #dvLogin
+    h2 Login
+    form(action="/api/users/login", method="post")
+      label(for="userid") Username/email
+      input#userid(type="text", name="userid")
+      label(for="password") Password
+      input#password(type="password", name="password")
+      input(type="submit", value="Login")
