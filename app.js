@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var userapi = require('./api/users');
+var productapi = require('./api/products');
 
 var app = express();
 // view engine setup
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/api/users', userapi);
+app.use('/api/products', productapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

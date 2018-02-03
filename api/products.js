@@ -1,0 +1,18 @@
+var express = require('express');
+var router = express.Router();
+var { gettop4products } = require('../lib/products');
+
+router.all("/*",function (req, res, next){
+    next();
+});
+
+router.get("/listtop", function (req, res, next) {
+    gettop4products(function(err,resp) {
+        if(err)
+          res.json({status:"error", message:err.message });
+        else
+          res.json(resp);
+    });
+});
+
+module.exports = router;
