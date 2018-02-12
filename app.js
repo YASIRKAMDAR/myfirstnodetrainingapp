@@ -11,10 +11,13 @@ var userapi = require('./api/users');
 var productapi = require('./api/products');
 
 var app = express();
+var hbs = require('hbs');
+
+hbs.registerPartials(__dirname + '/views/partials');
 // view engine setup
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

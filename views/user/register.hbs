@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<div id="dvRegister">
+    <h2>Register</h2>
+    {{> banner extra="the extra on banner from hbs page"}}
+    <form action="/api/users/register" method="post">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username"/>
+      <label for="email">Email</label>
+      <input id="email" type="text" name="email"/>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password"/>
+      <input type="submit" value="register"/>
+    </form>
+  </div>
+  
