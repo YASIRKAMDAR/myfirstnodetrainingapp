@@ -19,6 +19,8 @@ router.post("/register", function (req, res, next) {
           else
             res.json(resp);
       });
+}).get('/register', function(req, res, next) {
+  res.render('user/register', { title: 'Register on MyApp', extrareg: "extra on the register banner"  });
 });
 
 router.get("/list", function (req, res, next) {
@@ -42,7 +44,9 @@ router.post("/login", function (req, res, next) {
         else
           res.json(resp);
     });
-});
+}).get('/login', function(req, res, next) {
+  res.render('user/login', { title: 'Login to MyApp', extra: "extra on the &lg; banner &gt;", layout: "layouts/mycustom" });
+});;
 
 router.get("/checkuser/:userid", function (req, res, next) {
     checkuser(req.params.userid.toLowerCase(), undefined , function(err,resp) {
