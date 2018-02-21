@@ -15,9 +15,9 @@ router.post("/register", function (req, res, next) {
 
       adduser(user, function(err,resp) {
           if(err)
-            res.json({status:"error", message:err.message });
+            res.render('user/register', { title: 'Register on MyApp', extrareg: "extra on the register banner", PostRes:{status:"error", message:err.message }  });  
           else
-            res.json(resp);
+           res.render('user/register', { title: 'Register on MyApp', extrareg: "extra on the register banner", PostRes:resp });
       });
 }).get('/register', function(req, res, next) {
   res.render('user/register', { title: 'Register on MyApp', extrareg: "extra on the register banner"  });
@@ -39,10 +39,10 @@ router.post("/login", function (req, res, next) {
     };
 
     loginuser(user, function(err,resp) {
-        if(err)
-          res.json({status:"error", message:err.message });
-        else
-          res.json(resp);
+      if(err)
+        res.render('user/login', { title: 'Login to MyApp', extra: "extra on the &lg; banner &gt;", layout: "layouts/mycustom", PostRes:{status:"error", message:err.message } });
+      else
+        res.render('user/login', { title: 'Login to MyApp', extra: "extra on the &lg; banner &gt;", layout: "layouts/mycustom", PostRes:resp });
     });
 }).get('/login', function(req, res, next) {
   res.render('user/login', { title: 'Login to MyApp', extra: "extra on the &lg; banner &gt;", layout: "layouts/mycustom" });

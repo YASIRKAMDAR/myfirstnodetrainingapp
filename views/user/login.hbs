@@ -1,6 +1,10 @@
 <h1>{{title}}</h1>
 <div id="dvLogin">
     <h2>Login</h2>
+    {{#if PostRes}}
+        {{{PostRes}}}
+    {{/if}}
+    <p></p>
     {{> banner extra="the extra on &lt;banner&gt; from hbs login page"
                 moredata="Something more" }}
     <form action="/api/users/login" method="post">
